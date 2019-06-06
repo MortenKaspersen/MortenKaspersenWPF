@@ -1,0 +1,100 @@
+﻿<Window x:Class="DesktopApp.Views.LocationView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DesktopApp.Views"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterOwner"
+        FocusManager.FocusedElement="{Binding ElementName=tbxId}"
+        ShowInTaskbar="False"
+        Title="{Binding Path=Title}" Height="300" Width="500">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="4*" />
+        </Grid.ColumnDefinitions>
+
+        <Image Source="../Images/tree.jpg" Opacity="0.2" Grid.ColumnSpan="5" Grid.RowSpan="5" />
+
+        <Label Grid.Row="0"
+               Margin="5,0" >Id</Label>
+        <Label Grid.Row="1"
+               Margin="5,0"  >Name</Label>
+        <Label Grid.Row="2"
+               Margin="5,0"  >Adresse</Label>
+        <Label Grid.Row="3" Margin="5,0" >Måletræer</Label>
+
+        
+
+        <TextBox Grid.Column="1"
+                  
+                 Name="tbxId" 
+                 VerticalAlignment="Top" 
+                 HorizontalAlignment="Left" 
+                 MinWidth="75"
+                 Text="{Binding Path=CurrentLocation.ID}"
+                 Style="{StaticResource JamesStyle}"
+                 TabIndex="1"
+                 />
+        <TextBox Grid.Column="1"
+                 Grid.Row="1"
+                 Name="tbxCodeName" 
+                 Text="{Binding Path=CurrentLocation.Name}"
+                 Style="{StaticResource InputStyle}"
+                 TabIndex="2"
+                 />
+        <TextBox Grid.Column="1"
+                  Grid.Row="2"
+                  Text="{Binding Path=CurrentLocation.Adresse}" 
+                  Style="{StaticResource InputStyle}"
+                  TabIndex="3"
+                  />
+        <TextBox Grid.Column="1"
+                 Grid.Row="3"
+                 Name="tbxAssignment" 
+                 Text="{Binding Path=CurrentLocation.Måletræer}" 
+                 AcceptsReturn="True"
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Stretch"
+                 VerticalScrollBarVisibility="Auto"
+                 Style="{StaticResource InputStyle}" Grid.ColumnSpan="2"
+                 TabIndex="4"
+                 />
+        <WrapPanel Grid.Column="1"
+                   Grid.Row="4"
+                   HorizontalAlignment="Center"
+                   >
+            <Button IsDefault="True" 
+                    TabIndex="5"
+                    MinWidth="75" 
+                    Name="btnOk" 
+                    Click="BtnOk_Click"
+                    Command="{Binding Path=OkBtnCommand}"
+                    Content="_Ok"
+                    Margin="5"
+                    />
+            <Button Grid.Column="1"
+                    Grid.Row="4"
+                    IsCancel="True" 
+                    TabIndex="6"
+                    MinWidth="75" 
+                    Name="btnCancel" 
+                    Content="_Cancel"
+                    Margin="5"
+                    />
+        </WrapPanel>
+        
+        
+
+        
+    </Grid>
+</Window>

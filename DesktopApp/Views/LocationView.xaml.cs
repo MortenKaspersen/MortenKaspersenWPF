@@ -10,19 +10,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace DesktopApp
+namespace DesktopApp.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for LocationView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class LocationView : Window
     {
-        public MainWindow()
+        public LocationView()
         {
             InitializeComponent();
+        }
+
+        private void BtnOk_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
         }
     }
 }
